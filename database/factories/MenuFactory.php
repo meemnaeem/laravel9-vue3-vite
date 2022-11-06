@@ -17,9 +17,11 @@ class MenuFactory extends Factory
     public function definition()
     {
         return [
-             "name" => $this->faker->name(),
+            "name" => $this->faker->name(),
             "description" => $this->faker->paragraph(2, true),
             "price" => $this->faker->numberBetween(99, 999),
+            "resto_id" => 1,
+            "category_id" => 1,
         ];
     }
 }

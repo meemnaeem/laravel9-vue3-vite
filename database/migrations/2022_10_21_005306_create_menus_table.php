@@ -17,6 +17,8 @@ return new class extends Migration {
             $table->string('name');
             $table->text('description');
             $table->float('price', 6, 2);
+            $table->unsignedInteger('resto_id')->default('1');
+            $table->unsignedInteger('category_id');
             $table->timestamps();
         });
     }

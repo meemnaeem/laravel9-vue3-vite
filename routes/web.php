@@ -1,6 +1,12 @@
 <?php
+namespace routes;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MenuController;
+use App\Http\Controllers\RestoController;
+use App\Http\Controllers\RestoOrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +25,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/restos', [RestoController::class, 'index'])->name('restos');
+    Route::get('/restos/menu/{id}', [MenuController::class, 'index'])->name('resto.menu');
+    Route::get('/restos/orders/{id}', [RestoOrderController::class, 'index'])->name('resto.orders');
+    Route::get('/restos/orders/{id}/add', [RestoOrderController::class, 'add'])->name('resto.orders.add');
+});

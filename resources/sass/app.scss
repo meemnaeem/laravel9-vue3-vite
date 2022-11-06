@@ -1,8 +1,26 @@
 // Fonts
-@import url('https://fonts.bunny.net/css?family=Nunito');
+@import url("https://fonts.bunny.net/css?family=Nunito");
 
 // Variables
-@import 'variables';
+@import "variables";
 
 // Bootstrap
-@import 'bootstrap/scss/bootstrap';
+@import "bootstrap/scss/bootstrap";
+
+.navbar-laravel {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.validation-message {
+    color: $red;
+    font-size: 0.9em;
+}
+
+.container-padding {
+    padding: 10px;
+}
+
+.pointer {
+    cursor: pointer;
+}
